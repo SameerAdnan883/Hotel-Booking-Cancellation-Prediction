@@ -5,7 +5,22 @@ import joblib
 # ----------------------------
 # Load Model
 # ----------------------------
-model = joblib.load("hotel_booking_model.pkl")
+import sklearn
+import joblib
+
+st.write("✅ Streamlit started")
+st.write("Python is working")
+st.write("Scikit-learn:", sklearn.__version__)
+st.write("Joblib:", joblib.__version__)
+
+try:
+    model = joblib.load("hotel_booking_model.pkl")
+    st.success("✅ Model Loaded Successfully")
+except Exception as e:
+    st.error("❌ Model Loading Failed")
+    st.exception(e)
+    st.stop()
+#model = joblib.load("hotel_booking_model.pkl")
 
 # ----------------------------
 # Title
